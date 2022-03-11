@@ -1,7 +1,8 @@
-import { Reorder, useDragControls } from 'framer-motion';
-import { MdDragIndicator } from 'react-icons/md';
-import { PlusIcon } from '@heroicons/react/solid';
-import { useState } from 'react';
+import React from 'react'
+import {Reorder, useDragControls} from 'framer-motion'
+import {MdDragIndicator} from 'react-icons/md'
+import {PlusIcon} from '@heroicons/react/solid'
+import {useState} from 'react'
 
 const aliases = [
   {
@@ -39,26 +40,26 @@ const aliases = [
     alias: 'dev',
     path: 'cd ~/Developer',
   },
-];
+]
 
-export default function Aliases({ value }) {
-  const [items, setItems] = useState(aliases);
+export default function Aliases() {
+  const [items, setItems] = useState(aliases)
 
-  const dragControls = useDragControls();
+  const dragControls = useDragControls()
 
   function startDrag(event) {
-    dragControls.start(event, { snapToCursor: true });
+    dragControls.start(event, {snapToCursor: true})
   }
 
   return (
-    <div className="space-y-2">
-      <div className="flex max-w-xl flex-col overflow-hidden rounded-md border border-gray-100 bg-white text-sm">
-        <div className="flex items-center justify-between bg-gray-200 p-2">
+    <>
+      <div className="flex max-w-xl flex-col overflow-hidden rounded-md border border-gray-100 bg-white text-xs">
+        <div className="flex items-center justify-between bg-gray-100 p-2">
           <span className="font-medium text-gray-600">Aliases</span>
           <PlusIcon className="h-4 w-4 text-gray-600" />
         </div>
         <Reorder.Group axis="y" values={items} onReorder={setItems}>
-          {items.map((item) => (
+          {items.map(item => (
             <Reorder.Item
               key={item.id}
               value={item}
@@ -80,66 +81,6 @@ export default function Aliases({ value }) {
           ))}
         </Reorder.Group>
       </div>
-
-      <div className="flex max-w-xl flex-col overflow-hidden rounded-md border border-gray-100 bg-white text-sm">
-        <div className="flex items-center justify-between bg-gray-200 p-2">
-          <span className="font-medium text-gray-600">Paths</span>
-          <PlusIcon className="h-4 w-4 text-gray-600" />
-        </div>
-        <div className="flex justify-center">
-          <div className="flex flex-col p-6">
-            <span className="mb-2 text-center text-sm text-gray-400">
-              No paths
-            </span>
-            <div>
-              Hit{' '}
-              <span className="rounded bg-gray-200 p-1 text-gray-400">C</span>{' '}
-              <span className="rounded bg-gray-200 p-1 text-gray-400">P</span>{' '}
-              to create
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex max-w-xl flex-col overflow-hidden rounded-md border border-gray-100 bg-white text-sm">
-        <div className="flex items-center justify-between bg-gray-200 p-2">
-          <span className="font-medium text-gray-600">Functions</span>
-          <PlusIcon className="h-4 w-4 text-gray-600" />
-        </div>
-        <div className="flex justify-center">
-          <div className="flex flex-col p-6">
-            <span className="mb-2 text-center text-sm text-gray-400">
-              No functions
-            </span>
-            <div>
-              Hit{' '}
-              <span className="rounded bg-gray-200 p-1 text-gray-400">C</span>{' '}
-              <span className="rounded bg-gray-200 p-1 text-gray-400">F</span>{' '}
-              to create
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex max-w-xl flex-col overflow-hidden rounded-md border border-gray-100 bg-white text-sm">
-        <div className="flex items-center justify-between bg-gray-200 p-2">
-          <span className="font-medium text-gray-600">Functions</span>
-          <PlusIcon className="h-4 w-4 text-gray-600" />
-        </div>
-        <div className="flex justify-center">
-          <div className="flex flex-col p-6">
-            <span className="mb-2 text-center text-sm text-gray-400">
-              No functions
-            </span>
-            <div>
-              Hit{' '}
-              <span className="rounded bg-gray-200 p-1 text-gray-400">C</span>{' '}
-              <span className="rounded bg-gray-200 p-1 text-gray-400">F</span>{' '}
-              to create
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    </>
+  )
 }

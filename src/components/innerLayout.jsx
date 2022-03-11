@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-export default function InnerLayout({ children, title }) {
+export default function InnerLayout({ children, title = '' }) {
   return (
     <div className="flex h-full w-full flex-row">
       <div className="flex flex-1 flex-col border-r border-gray-200">

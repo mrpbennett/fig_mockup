@@ -1,29 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import {Link} from 'react-router-dom'
 import {
   FolderOpenIcon,
   TerminalIcon,
   QuestionMarkCircleIcon,
   CogIcon,
   ViewGridAddIcon,
-} from '@heroicons/react/outline';
-import { CubeIcon } from '@heroicons/react/solid';
+} from '@heroicons/react/outline'
+import {CubeIcon} from '@heroicons/react/solid'
+import PropTypes from 'prop-types'
 
-export default function Main({ children, title }) {
+export default function Main({children}) {
+  Main.propTypes = {
+    children: PropTypes.node,
+  }
   return (
     <div className="flex h-screen items-center justify-center bg-slate-400">
-      <div className="flex h-[40rem] w-[52rem] flex-col overflow-y-hidden rounded-lg bg-white shadow-lg">
+      <div className="flex h-[40rem] w-[60rem] flex-col overflow-y-hidden rounded-lg bg-white shadow-lg">
         <div className="hidden sm:block sm:grow">
           <div className="flex h-full w-full">
             <div className="border-r">
               <Menu />
             </div>
-            <main className="h-full">{children}</main>
+            <main className="h-full w-full">{children}</main>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 const MenuRoutes = [
@@ -55,7 +59,7 @@ const MenuRoutes = [
     label: 'Settings',
     to: '/settings',
   },
-];
+]
 
 function Menu() {
   return (
@@ -73,7 +77,7 @@ function Menu() {
 
       <div className="flex-1">
         <nav className="flex flex-col space-y-1 px-2">
-          {MenuRoutes.map((route) => (
+          {MenuRoutes.map(route => (
             <Link
               key={route.label}
               className="group flex items-center space-x-2.5 rounded-md border border-transparent px-1.5 py-1 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-900 focus:border-gray-200 focus:bg-gray-50 focus:text-gray-900 focus:outline-none"
@@ -95,5 +99,5 @@ function Menu() {
         </a>
       </div>
     </div>
-  );
+  )
 }

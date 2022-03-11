@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import {Link} from 'react-router-dom'
 import {
   ViewGridIcon,
   SparklesIcon,
@@ -9,74 +9,74 @@ import {
   CodeIcon,
   ExternalLinkIcon,
   CubeIcon,
-} from '@heroicons/react/solid';
-import Layout from '../components/layout';
-import InnerLayout from '../components/innerLayout';
+} from '@heroicons/react/solid'
+import Layout from '../components/layout'
+import InnerLayout from '../components/innerLayout'
 
 const PluginRoutes = [
   {
     icon: (
-      <ViewGridIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <ViewGridIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'All',
     to: 'all',
   },
   {
     icon: (
-      <SparklesIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <SparklesIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Featured',
     to: 'featured',
   },
   {
     icon: (
-      <EyeIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <EyeIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Interface',
     to: 'interface',
   },
   {
     icon: (
-      <AtSymbolIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <AtSymbolIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Completion',
     to: 'completion',
   },
   {
     icon: (
-      <ChipIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <ChipIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Commands',
     to: 'commands',
   },
   {
     icon: (
-      <CodeIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <CodeIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Code Display',
     to: 'code-display',
   },
   {
     icon: (
-      <ExternalLinkIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <ExternalLinkIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Integrations',
     to: 'integrations',
   },
   {
     icon: (
-      <CubeIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <CubeIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Others',
     to: 'others',
   },
-];
+]
 
 export default function Plugins() {
   return (
     <Layout>
       <InnerLayout title="Plugins">
-        {PluginRoutes.map((route) => (
+        {PluginRoutes.map(route => (
           <Link
             key={route.label}
             to={route.to}
@@ -85,10 +85,10 @@ export default function Plugins() {
             }`}
           >
             {route.icon}
-            <span className="whitespace-nowrap">{route.label}</span>
+            <span className="whitespace-nowrap text-xs">{route.label}</span>
           </Link>
         ))}
       </InnerLayout>
     </Layout>
-  );
+  )
 }

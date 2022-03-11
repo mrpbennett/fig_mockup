@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import {Link} from 'react-router-dom'
 import {
   LightningBoltIcon,
   AdjustmentsIcon,
@@ -8,67 +8,68 @@ import {
   CodeIcon,
   HandIcon,
   TerminalIcon,
-} from '@heroicons/react/solid';
-import Layout from '../components/layout';
-import InnerLayout from '../components/innerLayout';
+} from '@heroicons/react/solid'
+import Layout from '../components/layout'
+import InnerLayout from '../components/innerLayout'
 
 const DotFileRoutes = [
   {
     icon: (
-      <LightningBoltIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <LightningBoltIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Aliases',
     to: 'aliases',
+    active: true,
   },
   {
     icon: (
-      <AdjustmentsIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <AdjustmentsIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Variables',
     to: 'variables',
   },
   {
     icon: (
-      <DocumentSearchIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <DocumentSearchIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Paths',
     to: 'paths',
   },
   {
     icon: (
-      <VariableIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <VariableIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Functions',
     to: 'functions',
   },
   {
     icon: (
-      <CodeIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <CodeIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Custom scripts',
     to: 'custom-scripts',
   },
   {
     icon: (
-      <HandIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <HandIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Keybindings',
     to: 'keybindings',
   },
   {
     icon: (
-      <TerminalIcon className="h-5 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
+      <TerminalIcon className="h-4 w-auto flex-shrink-0 text-gray-500 group-hover:text-gray-600" />
     ),
     label: 'Prompt',
     to: 'prompt',
   },
-];
+]
 
 export default function Dotfiles() {
   return (
     <Layout>
       <InnerLayout title="Dotfiles">
-        {DotFileRoutes.map((route) => (
+        {DotFileRoutes.map(route => (
           <Link
             key={route.label}
             to={route.to}
@@ -77,10 +78,10 @@ export default function Dotfiles() {
             }`}
           >
             {route.icon}
-            <span className="whitespace-nowrap">{route.label}</span>
+            <span className="whitespace-nowrap text-xs">{route.label}</span>
           </Link>
         ))}
       </InnerLayout>
     </Layout>
-  );
+  )
 }
