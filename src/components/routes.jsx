@@ -1,9 +1,10 @@
 import React from 'react'
-import {Routes, Route, Navigate} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 
 import App from '../App'
 // DOTFILE ROUTES
 import Dotfiles from '../routes/dotfiles'
+import AllDotfiles from '../routes/dotfiles/main'
 import Aliases from '../routes/dotfiles/aliases'
 import Variables from '../routes/dotfiles/variables'
 import Paths from '../routes/dotfiles/paths'
@@ -36,7 +37,7 @@ export default function FigRoutes() {
       <Route path="/" element={<App />} />
 
       <Route path="dotfiles" element={<Dotfiles />}>
-        <Route index element={<Aliases />} />
+        <Route index element={<AllDotfiles />} />
         <Route path="aliases" element={<Aliases />} />
         <Route path="variables" element={<Variables />} />
         <Route path="paths" element={<Paths />} />
